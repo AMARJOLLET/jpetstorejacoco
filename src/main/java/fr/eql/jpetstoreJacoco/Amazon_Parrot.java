@@ -9,17 +9,13 @@ public class Amazon_Parrot extends PageObject {
 		super(driver);
 	}
 
-
 	@FindBy(xpath = "//a[contains(@href,'workingItemId=EST-18')]")
 	WebElement addAmazon_Parrot;
-	
-	
-	public ShopAmazon_Parrot clickAmazon_Parrot () {
+
+	public ShopAmazon_Parrot clickAmazon_Parrot() {
 		waitElementsXpath("//a[contains(@href,'workingItemId=EST-18')]");
-		addAmazon_Parrot.click();		
+		addAmazon_Parrot.click();
 		return new ShopAmazon_Parrot(driver);
 	}
-	
+
 }
-
-

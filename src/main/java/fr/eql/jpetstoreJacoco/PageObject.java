@@ -7,16 +7,15 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public abstract class PageObject {
-    protected WebDriver driver;
+	protected WebDriver driver;
 
-    public PageObject(WebDriver driver){
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
-    }
-    
-    public void waitElementsXpath (String xpathElements) {
-    	WebDriverWait wait = new WebDriverWait(driver, 1);
-    	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpathElements)));
-    }
+	public PageObject(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
 
+	public void waitElementsXpath(String xpathElements) {
+		WebDriverWait wait = new WebDriverWait(driver, 1);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpathElements)));
+	}
 }

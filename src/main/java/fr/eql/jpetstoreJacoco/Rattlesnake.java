@@ -13,13 +13,11 @@ public class Rattlesnake extends PageObject {
 	WebElement Venomless_Rattlesnake;
 	@FindBy(xpath = "//a[contains(@href,'workingItemId=EST-11')]")
 	WebElement Rattlesnake;
-	
-	
+
 	public ShopVenomless_Rattlesnake clickVenomless_Rattlesnake() {
 		waitElementsXpath("//a[contains(@href,'workingItemId=EST-11')]");
-		Venomless_Rattlesnake.click();		
+		Venomless_Rattlesnake.click();
 		return new ShopVenomless_Rattlesnake(driver);
 	}
-	
-	
+
 }

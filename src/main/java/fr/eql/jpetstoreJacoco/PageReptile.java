@@ -11,12 +11,11 @@ public class PageReptile extends PageObject {
 
 	@FindBy(xpath = "//a[contains(@href,'RP-SN-01')]")
 	WebElement Rattlesnake;
-	
-	public Rattlesnake clickRattlesnake () {
+
+	public Rattlesnake clickRattlesnake() {
 		waitElementsXpath("//a[contains(@href,'RP-SN-01')]");
-		Rattlesnake.click();		
+		Rattlesnake.click();
 		return new Rattlesnake(driver);
 	}
-	
-	
+
 }

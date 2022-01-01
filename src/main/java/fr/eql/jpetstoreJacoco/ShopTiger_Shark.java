@@ -15,15 +15,13 @@ public class ShopTiger_Shark extends PageObject {
 	WebElement addTiger_Shark;
 	@FindBy(xpath = "//a[contains(@href, 'newOrderForm')]")
 	WebElement confirmTiger_Shark;
-	
-	
-	
-	public Cards clickCards (int number_add) {
+
+	public Cards clickCards(int number_add) {
 		waitElementsXpath("//input[@name='EST-3']");
 		addTiger_Shark.click();
 		addTiger_Shark.clear();
 		addTiger_Shark.sendKeys(String.valueOf(number_add));
-		confirmTiger_Shark.click();		
+		confirmTiger_Shark.click();
 		return new Cards(driver);
 	}
 }

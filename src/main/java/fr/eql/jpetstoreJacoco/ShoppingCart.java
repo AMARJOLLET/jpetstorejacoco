@@ -4,10 +4,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class ShopAmazon_Parrot extends PageObject {
-	public ShopAmazon_Parrot(WebDriver driver) {
+public class ShoppingCart extends PageObject {
+	public ShoppingCart(WebDriver driver) {
 		super(driver);
 	}
+	
+	
 
 	@FindBy(xpath = "//a[contains(@href,'removeItemFromCart')]")
 	WebElement removeAmazon_Parrot;

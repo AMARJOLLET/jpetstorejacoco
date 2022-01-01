@@ -4,7 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-
 public class PageWelcome extends PageObject {
 	public PageWelcome(WebDriver driver) {
 		super(driver);
@@ -13,11 +12,9 @@ public class PageWelcome extends PageObject {
 	@FindBy(xpath = "//a[.='Enter the Store']")
 	WebElement Enter_the_Store;
 
-
-	public PageAccueil clickEnter () {
+	public PageAccueil clickEnter() {
 		waitElementsXpath("//a[.='Enter the Store']");
 		Enter_the_Store.click();
 		return new PageAccueil(driver);
 	}
 }
-

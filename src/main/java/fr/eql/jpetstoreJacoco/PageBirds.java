@@ -11,13 +11,11 @@ public class PageBirds extends PageObject {
 
 	@FindBy(xpath = "//a[contains(@href, 'productId=AV-CB-01')]")
 	WebElement Amazon_Parrot;
-	
-	
-	public Amazon_Parrot clickAmazon_Parrot () {
+
+	public Amazon_Parrot clickAmazon_Parrot() {
 		waitElementsXpath("//a[contains(@href, 'productId=AV-CB-01')]");
-		Amazon_Parrot.click();		
+		Amazon_Parrot.click();
 		return new Amazon_Parrot(driver);
 	}
-	
-	
+
 }
