@@ -4,8 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class PageSign_In extends PageObject {
-	public PageSign_In(WebDriver driver) {
+public class PageSignIn extends PageObject {
+	public PageSignIn(WebDriver driver) {
 		super(driver);
 	}
 

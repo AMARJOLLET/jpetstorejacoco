@@ -4,17 +4,17 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class Cards extends PageObject {
-	public Cards(WebDriver driver) {
+public class PageOrderNew extends PageObject {
+	public PageOrderNew(WebDriver driver) {
 		super(driver);
 	}
 
 	@FindBy(xpath = "//input[@name='newOrder']")
 	WebElement continuecards;
 
-	public CardsConfirm clickCardsConfirm() {
+	public PageOrderConfirm clickCardsConfirm() {
 		waitElementsXpath("//input[@name='newOrder']");
 		continuecards.click();
-		return new CardsConfirm(driver);
+		return new PageOrderConfirm(driver);
 	}
 }

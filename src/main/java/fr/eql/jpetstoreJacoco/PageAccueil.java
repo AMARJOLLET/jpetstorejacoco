@@ -20,33 +20,43 @@ public class PageAccueil extends PageObject {
 	WebElement Fish;
 	@FindBy(xpath = "//div[@id='SidebarContent']/a[contains(@href,'categoryId=BIRDS')]")
 	WebElement Birds;
+	@FindBy(xpath = "//div[@id='SidebarContent']/a[contains(@href,'categoryId=DOGS')]")
+	WebElement Dogs;
+	
+	
 
 	public boolean SignOutDisplay() {
 		return Sign_out.isDisplayed();
 	}
 
-	public PageSign_In clickSign_up() {
+	public PageSignIn clickSign_up() {
 		waitElementsXpath("//a[.='Sign In']");
 		Sign_in.click();
-		return new PageSign_In(driver);
+		return new PageSignIn(driver);
 	}
 
-	public PageReptile clickReptile() {
+	public PageProductReptile clickReptile() {
 		waitElementsXpath("//div[@id='SidebarContent']/a[contains(@href,'categoryId=REPTILES')]");
 		Reptile.click();
-		return PageFactory.initElements(driver, PageReptile.class);
+		return new PageProductReptile(driver);
 	}
 
-	public PageFish clickFish() {
+	public PageProductFish clickFish() {
 		waitElementsXpath("//div[@id='SidebarContent']/a[contains(@href,'categoryId=FISH')]");
 		Fish.click();
-		return PageFactory.initElements(driver, PageFish.class);
+		return new PageProductFish(driver);
 	}
 
-	public PageBirds clickBirds() {
+	public PageProductBirds clickBirds() {
 		waitElementsXpath("//div[@id='SidebarContent']/a[contains(@href,'categoryId=BIRDS')]");
 		Birds.click();
-		return PageFactory.initElements(driver, PageBirds.class);
+		return new PageProductBirds(driver);
 	}
+	public PageProductDogs clickDogs() {
+		waitElementsXpath("//div[@id='SidebarContent']/a[contains(@href,'categoryId=DOGS')]");
+		Dogs.click();
+		return new PageProductDogs(driver);
+	}
+	
 
 }

@@ -4,18 +4,18 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class Amazon_Parrot extends PageObject {
-	public Amazon_Parrot(WebDriver driver) {
+public class PageItemAmazonParrot extends PageObject {
+	public PageItemAmazonParrot(WebDriver driver) {
 		super(driver);
 	}
 
 	@FindBy(xpath = "//a[contains(@href,'workingItemId=EST-18')]")
-	WebElement addAmazon_Parrot;
+	WebElement addAdultMaleAmazonParrot;
 
-	public ShopAmazon_Parrot clickAmazon_Parrot() {
+	public ShoppingCart addCartAdultMaleAmazonParrot() {
 		waitElementsXpath("//a[contains(@href,'workingItemId=EST-18')]");
-		addAmazon_Parrot.click();
-		return new ShopAmazon_Parrot(driver);
+		addAdultMaleAmazonParrot.click();
+		return new ShoppingCart(driver);
 	}
 
 }

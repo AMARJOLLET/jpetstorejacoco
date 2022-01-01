@@ -10,7 +10,7 @@ public abstract class PageObjectTest {
 		System.setProperty("webdriver.chrome.driver", "src/main/resources/driver/chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		driver.get("http://localhost:8090/jpetstore");
+		driver.get("http://localhost:8080/jpetstore");
 	}
 
 	public void cleanUp() {
