@@ -28,40 +28,40 @@ public  class TestJacoco {
 	@Test
 	public  void navigateJpetstore() {
 		PageWelcome pageWelcome = PageFactory.initElements(driver,PageWelcome.class);
-		PageAccueil pageAccueil = pageWelcome.clickEnter(driver);
+		PageAccueil pageAccueil = pageWelcome.clickEnter();
 		
 		LOGGER.info("INITIALISATION");
 		// SIGN UP
-		PageSign_In pageSign_In = pageAccueil.clickSign_up(driver);
-		pageSign_In.clickSign_In(driver,"ACID","ACID");
+		PageSign_In pageSign_In = pageAccueil.clickSign_up();
+		pageSign_In.clickSign_In("ACID","ACID");
 		LOGGER.info("SIGN UP ok");
 
 		// BIRDS
-		PageBirds pageBirds = pageAccueil.clickBirds(driver);
-		Amazon_Parrot amazon_Parrot = pageBirds.clickAmazon_Parrot(driver);
-		ShopAmazon_Parrot shopAmazon_Parrot = amazon_Parrot.clickAmazon_Parrot(driver);
-		Cards cards = shopAmazon_Parrot.clickCards(driver);
-		CardsConfirm cardsConfirm = cards.clickCardsConfirm(driver);
-		cardsConfirm.clickReturn_to_Main_Menu(driver);	
+		PageBirds pageBirds = pageAccueil.clickBirds();
+		Amazon_Parrot amazon_Parrot = pageBirds.clickAmazon_Parrot();
+		ShopAmazon_Parrot shopAmazon_Parrot = amazon_Parrot.clickAmazon_Parrot();
+		Cards cards = shopAmazon_Parrot.clickCards(2);
+		CardsConfirm cardsConfirm = cards.clickCardsConfirm();
+		cardsConfirm.clickReturn_to_Main_Menu();	
 		LOGGER.info("BIRDS ok");
 
 		// REPTILE
-		PageReptile pageReptile = pageAccueil.clickReptile(driver);
-		Rattlesnake rattlesnake = pageReptile.clickRattlesnake(driver);
-		ShopVenomless_Rattlesnake shopVenomless_Rattlesnake = rattlesnake.clickVenomless_Rattlesnake(driver);
-		shopVenomless_Rattlesnake.clickCards(driver);
-		cards.clickCardsConfirm(driver);
-		cardsConfirm.clickReturn_to_Main_Menu(driver);		
+		PageReptile pageReptile = pageAccueil.clickReptile();
+		Rattlesnake rattlesnake = pageReptile.clickRattlesnake();
+		ShopVenomless_Rattlesnake shopVenomless_Rattlesnake = rattlesnake.clickVenomless_Rattlesnake();
+		shopVenomless_Rattlesnake.clickCards(2);
+		cards.clickCardsConfirm();
+		cardsConfirm.clickReturn_to_Main_Menu();		
 		
 		LOGGER.info("REPTILE ok");
 
 		// FISH
-		PageFish pageFish = pageAccueil.clickFish(driver);
-		Tiger_Shark tiger_Shark = pageFish.clickTiger_Shark(driver);
-		ShopTiger_Shark shopTiger_Shark = tiger_Shark.clickTiger_Shark(driver);
-		shopTiger_Shark.clickCards(driver);
-		cards.clickCardsConfirm(driver);
-		cardsConfirm.clickReturn_to_Main_Menu(driver);
+		PageFish pageFish = pageAccueil.clickFish();
+		Tiger_Shark tiger_Shark = pageFish.clickTiger_Shark();
+		ShopTiger_Shark shopTiger_Shark = tiger_Shark.clickTiger_Shark();
+		shopTiger_Shark.clickCards(2);
+		cards.clickCardsConfirm();
+		cardsConfirm.clickReturn_to_Main_Menu();
 		
 		LOGGER.info("FISH ok");
 

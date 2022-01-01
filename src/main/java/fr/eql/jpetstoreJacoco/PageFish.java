@@ -1,14 +1,15 @@
 package fr.eql.jpetstoreJacoco;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class PageFish {
+
+public class PageFish  extends PageObject{
+	public PageFish(WebDriver driver) {
+		super(driver);
+	}
+
 	@FindBy(xpath = "//a[contains(@href, 'FI-SW-01')]")
 	WebElement Angelfish;
 	@FindBy(xpath = "//a[contains(@href, 'FI-SW-02')]")
@@ -19,11 +20,10 @@ public class PageFish {
 	WebElement Goldfish;
 	
 	
-	public Tiger_Shark clickTiger_Shark (WebDriver driver) {
-		WebDriverWait wait = new WebDriverWait(driver, 1);		
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(@href, 'FI-SW-02')]")));
+	public Tiger_Shark clickTiger_Shark() {
+		waitElementsXpath("//a[contains(@href, 'FI-SW-02')]");
 		Tiger_Shark.click();		
-		return PageFactory.initElements(driver, Tiger_Shark.class);
+		return new Tiger_Shark(driver);
 	}
 	
 	

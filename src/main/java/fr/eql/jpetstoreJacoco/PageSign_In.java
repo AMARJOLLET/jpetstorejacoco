@@ -8,7 +8,11 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class PageSign_In {
+public class PageSign_In extends PageObject{
+	public PageSign_In(WebDriver driver) {
+		super(driver);
+	}
+
 	@FindBy(xpath = "//input[@name='username']")
 	WebElement US;
 	@FindBy(xpath = "//input[@name='password']")
@@ -17,11 +21,8 @@ public class PageSign_In {
 	@FindBy(xpath = "//input[@name='signon']")
 	WebElement Register;
 	
-	public PageSign_In clickSign_In(WebDriver driver, String username, String password) {
-		WebDriverWait wait = new WebDriverWait(driver, 1);		
-
-		wait.until(ExpectedConditions
-				.visibilityOfElementLocated(By.xpath("//input[@name='username']")));
+	public PageSign_In clickSign_In(String username, String password) {
+		waitElementsXpath("//input[@name='username']");
 		US.click();
 		US.clear();
 		US.sendKeys(username);
@@ -30,7 +31,7 @@ public class PageSign_In {
 		PW.sendKeys(password);
 		Register.click();
 		
-		return PageFactory.initElements(driver, PageSign_In.class);
+		return new PageSign_In(driver);
 	}
 
 }
