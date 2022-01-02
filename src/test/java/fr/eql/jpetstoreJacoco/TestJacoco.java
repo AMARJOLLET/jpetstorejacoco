@@ -19,15 +19,14 @@ public class TestJacoco extends PageObjectTest {
 	@Test
 	public void navigateJpetstore() {
 		int number_add = 3;
-		
 		String username = "ACID";
 		String password = "ACID";
 
-		//Page Accueil
+		// Page Accueil
 		PageWelcome pageWelcome = new PageWelcome(driver);
 		PageAccueil pageAccueil = pageWelcome.clickEnter();
 
-		LOGGER.info("INITIALISATION");
+		LOGGER.info("***** INITIALISATION *****") ;
 		// SIGN UP
 		PageSignIn pageSign_In = pageAccueil.clickSign_up();
 		pageSign_In.field(username, password);
@@ -35,17 +34,16 @@ public class TestJacoco extends PageObjectTest {
 
 		assertTrue(pageAccueil.SignOutDisplay());
 
-		LOGGER.info("SIGN UP ok");
+		LOGGER.info("***** SIGN UP DONE *****");
 
-		// BIRDS
+	 	// BIRDS
 		PageProductBirds pageBirds = pageAccueil.clickBirds();
 		PageItemAmazonParrot amazon_Parrot = pageBirds.clickAmazonParrot();
 		ShoppingCart shoppingCart = amazon_Parrot.addCartAdultMaleAmazonParrot();
 		shoppingCart.addAmazonParrot(number_add);
 		shoppingCart.ReturnToMenu();
-		
-		
-		LOGGER.info("BIRDS ok");
+
+		LOGGER.info("***** BIRDS DONE *****");
 
 		// REPTILE
 		PageProductReptile pageReptile = pageAccueil.clickReptile();
@@ -53,51 +51,53 @@ public class TestJacoco extends PageObjectTest {
 		rattlesnake.addCartVenomless_Rattlesnake();
 		shoppingCart.addVenomlessRattlesnake(number_add);
 		shoppingCart.ReturnToMenu();
-		LOGGER.info("REPTILE ok");
-		
-		//Dogs
+		LOGGER.info("***** REPTILE DONE *****");
+
+	 	// Dogs
 		PageProductDogs pageDogs = pageAccueil.clickDogs();
 		PageItemBulldog bulldogs = pageDogs.clickBulldog();
 		bulldogs.addCartMaleAdultBulldog();
 		shoppingCart.addMaleAdultBulldog(number_add);
 		shoppingCart.ReturnToMenu();
-		LOGGER.info("DOGS ok");
+		LOGGER.info("***** DOGS DONE *****");
 
-		// FISH
+		//  FISH
 		PageProductFish pageFish = pageAccueil.clickFish();
 		PageItemTigerShark tiger_Shark = pageFish.clickTiger_Shark();
 		tiger_Shark.addCartTiger_Shark();
 		shoppingCart.addTigerShark(number_add);
-		LOGGER.info("FISH ok");
-		// Assertion price
-		
+		LOGGER.info("***** FISH DONE *****");
+
+		//  Assertion price
 		Double priceAmazonParrotActual = Double.parseDouble(shoppingCart.priceBirds());
 		Double priceBulldogActual = Double.parseDouble(shoppingCart.priceDogs());
 		Double priceRattlesnakeActual = Double.parseDouble(shoppingCart.priceSnake());
 		Double priceTigerSharkActual = Double.parseDouble(shoppingCart.priceFish());
-		//Double priceSubtotalActual = Double.parseDouble(shoppingCart.priceSubtotal());
+		Double priceSubtotalActual = Double.parseDouble(shoppingCart.subtotal());
 
+		Double priceAmazonParrotExpected = 193.50 * number_add;
+		Double priceBulldogExpected = 18.50 * number_add;
+		Double priceRattlesnakeExpected = 18.50 * number_add;
+		Double priceTigerSharkExpected = 18.50 * number_add;
+		Double priceSubtotalExpected = priceAmazonParrotExpected + priceBulldogExpected + priceRattlesnakeExpected
+				+ priceTigerSharkExpected;
 
-		Double priceAmazonParrotExpected = 193.50*number_add;
-		Double priceBulldogExpected = 18.50*number_add;
-		Double priceRattlesnakeExpected = 18.50*number_add;
-		Double priceTigerSharkExpected = 18.50*number_add;
-		//Double priceSubtotalExpected = priceAmazonParrotExpected+priceBulldogExpected+priceRattlesnakeExpected+priceTigerSharkExpected;
-		
-				
-		assertEquals("Prix Amazon Parrot différent",priceAmazonParrotExpected, priceAmazonParrotActual,0);
-		assertEquals("Prix Bulldog différent",priceBulldogExpected, priceBulldogActual,0);
-		assertEquals("Prix RattleSnake différent",priceRattlesnakeExpected, priceRattlesnakeActual,0);
-		assertEquals("Prix TigerShark différent",priceTigerSharkExpected, priceTigerSharkActual,0);
-		//assertEquals("Subtotal différent",priceSubtotalExpected, priceSubtotalActual,0);
-		
+		assertEquals("Prix Amazon Parrot différent", priceAmazonParrotExpected, priceAmazonParrotActual, 0);
+		assertEquals("Prix Bulldog différent", priceBulldogExpected, priceBulldogActual, 0);
+		assertEquals("Prix RattleSnake différent", priceRattlesnakeExpected, priceRattlesnakeActual, 0);
+		assertEquals("Prix TigerShark différent", priceTigerSharkExpected, priceTigerSharkActual, 0);
+		assertEquals("Subtotal différent", priceSubtotalExpected, priceSubtotalActual, 0);
+
 		// Confirm order
 		PageOrderNew pageOrderNew = shoppingCart.confirmOrder();
 		PageOrderConfirm pageOrderConfirm = pageOrderNew.clickCardsConfirm();
 		PageOrderRecap pageOrderRecap = pageOrderConfirm.confirm_buttonclick();
 		pageOrderRecap.ReturnToMainMenu();
-		LOGGER.info("Confirm order ok");
-	
+		pageAccueil.clickSign_out();
+
+		assertTrue(pageAccueil.SignInDisplay());
+		LOGGER.info("***** Confirm order DONE *****");
+
 	}
 
 	@After

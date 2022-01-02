@@ -10,9 +10,9 @@ public class PageAccueil extends PageObject {
 		super(driver);
 	}
 
-	@FindBy(xpath = "//a[.='Sign In']")
+	@FindBy(xpath = "//a[contains(@href,'signon')]")
 	WebElement Sign_in;
-	@FindBy(xpath = "//a[.='Sign Out']")
+	@FindBy(xpath = "//a[contains(@href,'signoff')]")
 	WebElement Sign_out;
 	@FindBy(xpath = "//div[@id='SidebarContent']/a[contains(@href,'categoryId=REPTILES')]")
 	WebElement Reptile;
@@ -23,15 +23,15 @@ public class PageAccueil extends PageObject {
 	@FindBy(xpath = "//div[@id='SidebarContent']/a[contains(@href,'categoryId=DOGS')]")
 	WebElement Dogs;
 	
-	
-
-	public boolean SignOutDisplay() {
-		return Sign_out.isDisplayed();
-	}
-
+	// Webelement
 	public PageSignIn clickSign_up() {
-		waitElementsXpath("//a[.='Sign In']");
+		waitElementsXpath("//a[contains(@href,'signon')]");
 		Sign_in.click();
+		return new PageSignIn(driver);
+	}
+	public PageSignIn clickSign_out() {
+		waitElementsXpath("//a[contains(@href,'signoff')]");
+		Sign_out.click();
 		return new PageSignIn(driver);
 	}
 
@@ -58,5 +58,12 @@ public class PageAccueil extends PageObject {
 		return new PageProductDogs(driver);
 	}
 	
+	// Assertion Display
+	public boolean SignOutDisplay() {
+		return Sign_out.isDisplayed();
+	}
+	public boolean SignInDisplay() {
+		return Sign_in.isDisplayed();
+	}
 
 }

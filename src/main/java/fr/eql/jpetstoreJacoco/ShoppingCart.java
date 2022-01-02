@@ -27,7 +27,7 @@ public class ShoppingCart extends PageObject {
 	WebElement priceVenomlessRattlesnake;
 	@FindBy(xpath = "//input[@name='EST-6']/following::td[2]")
 	WebElement priceMaleAdultBulldog;
-	@FindBy(xpath ="//input[@value='Update Cart']/preceding-sibling::text()")
+	@FindBy(xpath ="//td[@colspan='7']")
 	WebElement Subtotal;
 
 	@FindBy(xpath = "//input[@value='Update Cart']")
@@ -65,7 +65,7 @@ public class ShoppingCart extends PageObject {
 		addVenomlessRattlesnake.sendKeys(String.valueOf(number_add));
 		updateCart_button.click();		
 	}
-	
+		
 	// DOGS
 	public void addMaleAdultBulldog(int number_add) {
 		waitElementsXpath("//h2[text()='Shopping Cart']");
@@ -75,8 +75,19 @@ public class ShoppingCart extends PageObject {
 		updateCart_button.click();
 	}
 		
-	// Recup price
+	// RETURN PAGEACCUEIL
+	public PageAccueil ReturnToMenu () {
+		ReturnPageActuel.click();
+		return new PageAccueil(driver);
+	}
 	
+	// VALIDE PANIER
+	public PageOrderNew confirmOrder() {
+		confirmOrder.click();
+		return new PageOrderNew(driver);
+	}	
+	
+	// Assertion prix => Recup price
 	public String priceBirds() {
 		return priceAmazonParrot.getText().substring(1).replace(",", ".");
 	}
@@ -89,17 +100,8 @@ public class ShoppingCart extends PageObject {
 	public String priceFish() {
 		return priceTigerShark.getText().substring(1).replace(",", ".");
 	}
-	
-	
-	// RETURN PAGEACCUEIL
-	public PageAccueil ReturnToMenu () {
-		ReturnPageActuel.click();
-		return new PageAccueil(driver);
+	public String subtotal() {
+		return Subtotal.getText().substring(12).replace(",",".");
 	}
-	
-	// VALIDE PANIER
-	public PageOrderNew confirmOrder() {
-		confirmOrder.click();
-		return new PageOrderNew(driver);
-	}	
+
 }
