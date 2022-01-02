@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class ShoppingCart extends PageObject {
+public class ShoppingCart extends AbstractBandeauPersistant {
 	public ShoppingCart(WebDriver driver) {
 		super(driver);
 	}
@@ -88,20 +88,12 @@ public class ShoppingCart extends PageObject {
 	}	
 	
 	// Assertion prix => Recup price
-	public String priceBirds() {
-		return priceAmazonParrot.getText().substring(1).replace(",", ".");
-	}
-	public String priceDogs() {
-		return priceMaleAdultBulldog.getText().substring(1).replace(",", ".");
-	}
-	public String priceSnake() {
-		return priceVenomlessRattlesnake.getText().substring(1).replace(",", ".");
-	}
-	public String priceFish() {
-		return priceTigerShark.getText().substring(1).replace(",", ".");
-	}
-	public String subtotal() {
-		return Subtotal.getText().substring(12).replace(",",".");
+	public double pricetodoubleProduct(String PriceString) {
+		String price = PriceString.replaceAll("\\D+", "");
+		int pricelength = price.length();
+		price = price.substring(0,price.length()-2)+"."+price.substring(pricelength-2,pricelength);
+		double PriceDouble = Double.parseDouble(price);
+		return PriceDouble;
 	}
 
 }

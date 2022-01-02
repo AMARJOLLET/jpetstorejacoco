@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class PageOrderConfirm extends PageObject {
+public class PageOrderConfirm extends AbstractBandeauPersistant {
 	public PageOrderConfirm(WebDriver driver) {
 		super(driver);
 	}

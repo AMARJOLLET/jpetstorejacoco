@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class PageProductDogs extends PageObject {
+public class PageProductDogs extends AbstractBandeauPersistant {
 	public PageProductDogs(WebDriver driver) {
 		super(driver);
 	}

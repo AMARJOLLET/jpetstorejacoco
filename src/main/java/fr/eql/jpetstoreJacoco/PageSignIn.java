@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class PageSignIn extends PageObject {
+public class PageSignIn extends AbstractBandeauPersistant {
 	public PageSignIn(WebDriver driver) {
 		super(driver);
 	}
@@ -26,7 +26,7 @@ public class PageSignIn extends PageObject {
 		this.password.sendKeys(password);
 	}
 
-	public PageAccueil SignIn() {
+	public PageAccueil clickRegister() {
 		Register.click();
 		return new PageAccueil(driver);
 	}

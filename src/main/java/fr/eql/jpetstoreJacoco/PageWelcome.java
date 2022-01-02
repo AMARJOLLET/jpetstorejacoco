@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class PageWelcome extends PageObject {
+public class PageWelcome extends AbstractBandeauPersistant {
 	public PageWelcome(WebDriver driver) {
 		super(driver);
 	}

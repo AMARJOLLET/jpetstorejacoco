@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class PageProductFish extends PageObject {
+public class PageProductFish extends AbstractBandeauPersistant {
 	public PageProductFish(WebDriver driver) {
 		super(driver);
 	}
@@ -12,15 +12,15 @@ public class PageProductFish extends PageObject {
 	@FindBy(xpath = "//a[contains(@href, 'FI-SW-01')]")
 	WebElement Angelfish;
 	@FindBy(xpath = "//a[contains(@href, 'FI-SW-02')]")
-	WebElement Tiger_Shark;
+	WebElement TigerShark;
 	@FindBy(xpath = "//a[contains(@href, 'FI-FW-01')]")
 	WebElement Koi;
 	@FindBy(xpath = "//a[contains(@href, 'FI-FW-02')]")
 	WebElement Goldfish;
 
-	public PageItemTigerShark clickTiger_Shark() {
+	public PageItemTigerShark clickTigerShark() {
 		waitElementsXpath("//a[contains(@href, 'FI-SW-02')]");
-		Tiger_Shark.click();
+		TigerShark.click();
 		return new PageItemTigerShark(driver);
 	}
 

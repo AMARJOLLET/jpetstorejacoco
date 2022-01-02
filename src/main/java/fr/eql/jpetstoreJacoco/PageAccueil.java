@@ -3,9 +3,8 @@ package fr.eql.jpetstoreJacoco;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class PageAccueil extends PageObject {
+public class PageAccueil extends AbstractBandeauPersistant {
 	public PageAccueil(WebDriver driver) {
 		super(driver);
 	}
@@ -24,17 +23,6 @@ public class PageAccueil extends PageObject {
 	WebElement Dogs;
 	
 	// Webelement
-	public PageSignIn clickSign_up() {
-		waitElementsXpath("//a[contains(@href,'signon')]");
-		Sign_in.click();
-		return new PageSignIn(driver);
-	}
-	public PageSignIn clickSign_out() {
-		waitElementsXpath("//a[contains(@href,'signoff')]");
-		Sign_out.click();
-		return new PageSignIn(driver);
-	}
-
 	public PageProductReptile clickReptile() {
 		waitElementsXpath("//div[@id='SidebarContent']/a[contains(@href,'categoryId=REPTILES')]");
 		Reptile.click();
@@ -58,12 +46,4 @@ public class PageAccueil extends PageObject {
 		return new PageProductDogs(driver);
 	}
 	
-	// Assertion Display
-	public boolean SignOutDisplay() {
-		return Sign_out.isDisplayed();
-	}
-	public boolean SignInDisplay() {
-		return Sign_in.isDisplayed();
-	}
-
 }
